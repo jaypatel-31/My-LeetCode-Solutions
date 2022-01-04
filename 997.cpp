@@ -1,19 +1,12 @@
-//Problem Number - 997
-//Problem Name - Find the Town Judge
+//Problem Number - 1009
+//Problem Name -Complement of Base 10 Integer
 
-class Solution {
-public:
-    int findJudge(int N, vector<vector<int>>& trust) {
-        vector<int> odeg(N + 1, 0);
-        int size = trust.size();
-        for(int i=0;i<size;i++){
-            odeg[trust[i][0]]--;
-            odeg[trust[i][1]]++;
+int bitwiseComplement(int n) {
+        if(n == 0)  return 1;
+        long long int p2 = 1;
+        while(p2 <= n){
+            p2 = p2 * 2;
         }
-        for(int i = 1;i <= N;i++){
-            if(odeg[i] == N - 1)
-                return i;
-        }
-        return -1;
+        //cout<<n<<"  "<<p2<<endl;
+        return p2-1-n;
     }
-};
